@@ -1,0 +1,55 @@
+<nav>
+        <div class = "container nav_container">
+
+            <%= link_to 'Truth Feed', root_path , class: 'nav_logo' %>
+
+
+            <div class='nav_group'>
+                <ul class ="nav_items">
+
+                    <%= form_tag(root_path, method: :get) do %>
+                        <div class="search-box">
+                          <%= text_field_tag :query, params[:query], placeholder: "not implemented" %>
+                          <%= submit_tag "Search" %>
+                        </div>
+                    <% end %>
+                
+                    <li><%= link_to 'Contact', pages_contact_path %></li>
+                    <li><%= link_to 'About', pages_about_path %></li>
+
+                    <li class ="nav_profile"> 
+                    
+                        <div class ="avatar">
+                            <img src="" alt="no src">
+                        </div>
+
+                        <ul>
+                            <li><%= link_to 'Dashboard', root_path %></li>
+                            <li><%= link_to 'Logout', root_path %></li>
+                        </ul>
+
+                    </li>
+
+                    <!--div class="account_op">
+                    <li><a href = "<?= ROOT_URL?>signin.php" class="nav_sign in"> Sign in  </a> </li>
+                    <li  ><a href = "<?= ROOT_URL?>signup.php"  class="nav_sign up"> Sign Up  </a> </li>
+                    </div-->
+
+                </ul>
+                
+                <ul class ="nav_items">
+                    <li><%= link_to 'local', root_path %></li>
+                    <li><%= link_to 'local', root_path %></li>
+                    <li><%= link_to 'local', root_path %></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+</nav>
+
+<div class='section_extra-margin'>
+    temp border 
+</div>
