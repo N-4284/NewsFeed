@@ -14,7 +14,8 @@
 }
 
 :focus {
-    outline: 5px solid $color-blue-neon;
+    outline: 3px solid $color-blue-neon;
+    border-radius: $card-border-radius-1;
     transition: outline 200ms ease-in-out;
 }
 

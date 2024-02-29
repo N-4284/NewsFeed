@@ -1,23 +1,28 @@
 <nav>
-        <div class = "container nav_container">
+        <div class = "container ">
 
-            <%= link_to 'Truth Feed', root_path , class: 'nav_logo' %>
+            
+            <div class='nav_container'>
+                <%= link_to 'Truth Feed', root_path , class: 'nav_logo' %>
 
-
-            <div class='nav_group'>
                 <ul class ="nav_items">
 
-                    <%= form_tag(root_path, method: :get) do %>
-                        <div class="search-box">
-                          <%= text_field_tag :query, params[:query], placeholder: "not implemented" %>
-                          <%= submit_tag "Search" %>
-                        </div>
-                    <% end %>
+                    <div class='search_bar'>
+                        <%= form_tag(root_path, method: :get) do %>
+                                
+                            <div class="search_bar-container">
+                                
+                                <%= image_submit_tag("search.svg", alt: "Search" , class: 'search_bar-button', tabindex: '-1') %>
+                                <%= text_field_tag :query, params[:query], placeholder: "not implemented", class: 'input_bar' %>
+                                
+                            </div>
+                        <% end %>
+                    </div>
                 
                     <li><%= link_to 'Contact', pages_contact_path %></li>
                     <li><%= link_to 'About', pages_about_path %></li>
 
-                    <li class ="nav_profile"> 
+                    <li class ="nav_items"> 
                     
                         <div class ="avatar">
                             <img src="" alt="no src">
@@ -37,19 +42,26 @@
 
                 </ul>
                 
-                <ul class ="nav_items">
+            </div>
+
+            <div class='nav_container'>
+                <!--move evrthing in  this div to an other file if active bar needs to be shown-->
+                <ul class ="nav_items nav_bar-secondary">
+                    <li><%= link_to 'Home', root_path %></li>
+                    <li><%= link_to 'For you', root_path %></li>
+                    <li><%= link_to 'Following', root_path %></li>
+                    <div class='spacing_bar'></div>
+                    <li><%= link_to 'local', root_path %></li>
                     <li><%= link_to 'local', root_path %></li>
                     <li><%= link_to 'local', root_path %></li>
                     <li><%= link_to 'local', root_path %></li>
 
                 </ul>
-
-            </div>
+                
+            </div>          
 
         </div>
 
 </nav>
 
-<div class='section_extra-margin'>
-    temp border 
-</div>
+<div class='section_extra-margin'></div>

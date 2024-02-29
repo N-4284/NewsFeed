@@ -1,6 +1,6 @@
 @import 'variables';
 nav {
-    background: $color-deep-dark;
+    background: $color-blk-dark;
     width: 100vw;
     height: 6.5rem;
     position: fixed;
@@ -8,7 +8,6 @@ nav {
     z-index: 10;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
 }
-
 
 .nav_container {
     height: 100%;
@@ -37,4 +36,61 @@ nav {
 .nav_group {
     display: flex;
     flex-direction: column;
+}
+
+.nav_bar-secondary {
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.spacing_bar {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/* unique search bar for navbar*/
+
+.search_bar-container
+{
+    margin-top: 1rem;    
+    width: 25rem;
+    background:$color-white-g300;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    overflow: hidden;
+    padding: 0rem 0rem 0rem 0.1rem ;
+    border-radius: $card-border-radius-2;
+    color: $color-gray-300;
+}
+
+.search_bar-container>div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search_bar-container:focus-within {
+    box-shadow: 0 0 0 2px $color-blue-neon;
+    background-color: $color-white-g500;
+    transition: box-shadow 200ms ease;
+}
+
+.search_bar .input_bar{
+    margin-left: 1rem;
+    font-size: 1rem;
+    background-color: $color-white-g300;
+    color: $color-blk-dark-light;
+    padding: .8rem 0rem;
+    width: 100%;
+    outline: none;
+}
+.search_bar .input_bar:focus{
+    background-color: $color-white-g500;
+}
+
+.search_bar-button {
+    flex:0 0 10%;
+    margin-left: 0.2rem;
+    outline: none;
+    
 }
