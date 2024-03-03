@@ -1,0 +1,74 @@
+@import 'variables';
+
+footer 
+{
+    background-color: $color-blk-dark-light;
+    padding: 5rem 0 0;
+    box-shadow: inset 0 1.5rem 1,5rem rgba(0, 0, 0, 0.2);
+}
+
+.footer_socials
+{
+    margin-inline: auto;
+    width: fit-content;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap :1.5rem ;
+}
+
+.footer_socials a
+{
+    background: $color-bg;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.footer_socials a:hover
+{
+    background-color: $color-white;
+    color: $color-bg;
+    
+}
+
+.footer_container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    text-align: center;
+
+}
+
+footer h4{
+    color: $color-white;
+    margin-bottom: 0.6rem;
+
+}
+footer ul li{
+    padding: 0.4rem 0 0 ;
+}
+
+footer ul a{
+    opacity: 0.6;
+
+}
+
+footer ul a:hover{
+    letter-spacing: 0.1rem;
+    opacity: 1;
+}
+
+.footer_copyright
+{
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 2px solid $color-bg;
+    margin-top: 4rem;
+}

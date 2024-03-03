@@ -1,0 +1,49 @@
+<div class='section_extra-margin'></div>
+<footer>
+    <div class="footer_socials">
+        
+        <a href="https://www.youtube.com/" target="_blank"><i class="">social bubble</i></a>
+        
+    </div>
+    
+    <div class="container footer_container">
+
+        <article>
+            <h4> Categories</h4>
+            <ul>
+                <% 5.times do |i|%>
+                    <li><%= link_to i , root_path %></li>
+                <%end%>
+            </ul>
+        </article>
+
+        <article>
+            <h4> Support</h4>
+            <ul>
+                <li><a href="">Social Support</a></li>
+                <li><a href="">Email</a></li>
+                <li><a href="">Local Numbers</a></li>
+                <li><a href="">Online Complaints </a></li>
+                <li><a href="">Queries</a></li>
+                <li><a href="">Location</a></li>
+            </ul>
+        </article>
+
+        <article>
+            <h4> Truth Feed</h4>
+            <ul>
+                <li><%= link_to "Terms", root_path %></li>
+                <li><%= link_to "Update", root_path %></li>
+                <li><%= link_to "News", root_path %></li>
+                <li><%= link_to "About", root_path %></li>
+                <li><%= link_to "Team", root_path %></li>
+            </ul>
+        </article>
+
+    </div>
+
+    <div class=" footer_copyright">
+        <small> Copyright &copy; Truth Feed 2024</small>
+    </div>
+    
+</footer>
