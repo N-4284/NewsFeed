@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.0.2"
 
+gem 'devise', '~> 4.9', '>= 4.9.3'
+
 # SCSS
 gem 'sassc', '~> 2.0'
 
