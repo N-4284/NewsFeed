@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_071244) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_08_083412) do
+  create_table "categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "author_id_id"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.string "thumbnail", null: false
+    t.integer "category_id_id"
+    t.integer "location_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id_id"], name: "index_posts_on_author_id_id"
+    t.index ["category_id_id"], name: "index_posts_on_category_id_id"
+    t.index ["location_id_id"], name: "index_posts_on_location_id_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -27,4 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_071244) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "posts", "categories", column: "category_id_id"
+  add_foreign_key "posts", "locations", column: "location_id_id"
+  add_foreign_key "posts", "users", column: "author_id_id"
 end
