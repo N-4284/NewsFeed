@@ -13,15 +13,26 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    #byebug
+    @categories = Category.all.pluck(:title, :id) # Fetch categories from the database
+    @locations = Location.all.pluck(:title, :id)
   end
 
   # GET /posts/1/edit
   def edit
+    @post = current_user.posts.find(params[:id])
+    @categories = Category.all.map { |category| [category.title, category.id] }
+    @locations = Location.all.map {|location| [location.title, location.id] }
   end
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+    @categories = Category.all.map { |category| [category.title, category.id] }
+    @locations = Location.all.map {|location| [location.title, location.id] }
+    if params[:post][:thumbnail].present?
+      @post.thumbnail = save_thumbnail(params[:post][:thumbnail])
+    end
 
     respond_to do |format|
       if @post.save
@@ -58,6 +69,19 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def save_thumbnail(thumbnail)
+      filename = thumbnail.original_filename
+      file_extension = File.extname(filename)
+      timestamp = Time.now.strftime("%Y%m%d%H%M%S")
+      random_string = SecureRandom.hex(4)
+      filename = "#{timestamp}_#{random_string}#{file_extension}"
+      filepath = Rails.root.join('public', 'thumbnails', filename)
+      File.open(filepath, 'wb') do |file|
+        file.write(thumbnail.read)
+      end
+      filename
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
@@ -65,6 +89,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:author_id, :title, :body, :thumbnail, :category_id, :location_id)
+      params.require(:post).permit( :title, :body, :thumbnail, :category_id, :location_id)
     end
 end

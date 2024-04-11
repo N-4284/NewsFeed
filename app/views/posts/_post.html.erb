@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>">
   <p>
     <strong>Author:</strong>
-    <%= post.author_id %>
+    <%= post.author.username %>
   </p>
 
   <p>
@@ -16,17 +16,18 @@
 
   <p>
     <strong>Thumbnail:</strong>
-    <%= post.thumbnail %>
+    <%= image_tag("#{post.thumbnail}", class: "thumbnail") %>
+    <!--%= post.thumbnail %-->
   </p>
 
   <p>
     <strong>Category:</strong>
-    <%= post.category_id %>
+    <%= post.category.title %>
   </p>
 
   <p>
     <strong>Location:</strong>
-    <%= post.location_id %>
+    <%= post.location.title %>
   </p>
 
 </div>

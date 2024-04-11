@@ -1,4 +1,4 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, html: { multipart: true }) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :author_id, style: "display: block" %>
-    <%= form.number_field :author_id %>
+    <%= puts current_user %>
   </div>
 
   <div>
@@ -28,17 +28,17 @@
 
   <div>
     <%= form.label :thumbnail, style: "display: block" %>
-    <%= form.text_field :thumbnail %>
+    <%= form.file_field :thumbnail, accept: "image/jpeg, image/png", max_size: 5.megabytes %>
   </div>
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
+    <%= form.select :category_id, options_for_select(@categories, @post.category_id) %>
   </div>
 
   <div>
     <%= form.label :location_id, style: "display: block" %>
-    <%= form.number_field :location_id %>
+    <%= form.select :location_id, options_for_select(@locations, @post.location_id) %>
   </div>
 
   <div>

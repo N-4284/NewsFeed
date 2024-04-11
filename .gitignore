@@ -30,6 +30,11 @@
 !/tmp/storage/.keep
 
 /public/assets
+#Thumbnails 
+/public/thumbnails
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#byebug history
+.byebug_history
