@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :authorize_user!, only: [:edit, :destroy]
   # GET /posts or /posts.json
   def index
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    authorize! :create, @post
     @post = Post.new
     #byebug
     @categories = Category.all.pluck(:title, :id) # Fetch categories from the database
