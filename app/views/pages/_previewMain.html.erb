@@ -9,7 +9,7 @@
         <small>
           <p>
             <strong>Author:</strong>
-            <%= post.author.username %>
+            <%= post.author&.username.presence || "[Deleted Account]" %>
           </p>
 
           <p>
