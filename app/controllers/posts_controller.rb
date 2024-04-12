@@ -31,8 +31,8 @@ class PostsController < ApplicationController
     @categories = Category.all.map { |category| [category.title, category.id] }
     @locations = Location.all.map {|location| [location.title, location.id] }
     if params[:post][:thumbnail].present?
-      @post.thumbnail = save_thumbnail(params[:post][:thumbnail])
-    end
+      @post.thumbnail.attach(params[:post][:thumbnail])
+    end 
 
     respond_to do |format|
       if @post.save
@@ -70,18 +70,6 @@ class PostsController < ApplicationController
 
   private
 
-    def save_thumbnail(thumbnail)
-      filename = thumbnail.original_filename
-      file_extension = File.extname(filename)
-      timestamp = Time.now.strftime("%Y%m%d%H%M%S")
-      random_string = SecureRandom.hex(4)
-      filename = "#{timestamp}_#{random_string}#{file_extension}"
-      filepath = Rails.root.join('public', 'thumbnails', filename)
-      File.open(filepath, 'wb') do |file|
-        file.write(thumbnail.read)
-      end
-      filename
-    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

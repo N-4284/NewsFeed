@@ -4,8 +4,8 @@
 
 
 <div id="posts">
-  <% @posts.includes(:author,:category, :location).all.each do |post| %>
-    <%= render post %>
+  <% @posts.includes(:author, :category, :location).each do |post| %>
+    <%= render partial: 'post', locals: { post: post } %>
     <p>
       <%= link_to "Show this post", post %>
     </p>

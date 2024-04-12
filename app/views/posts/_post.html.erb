@@ -15,8 +15,8 @@
   </p>
 
   <p>
-    <strong>Thumbnail:</strong>
-    <%= image_tag("#{post.thumbnail}", class: "thumbnail") %>
+    <strong>Thumbnail:</strong>    
+      <%= image_tag rails_blob_path(post.thumbnail), class: "thumbnail" %>
     <!--%= post.thumbnail %-->
   </p>
 
