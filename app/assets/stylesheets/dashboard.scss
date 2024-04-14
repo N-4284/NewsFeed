@@ -14,10 +14,11 @@
     aspect-ratio: 1/1;
     border-radius: 30%;
     overflow: hidden;
-    border: 0.4rem solid $color-blue-neon;
+    border: 0.4rem solid  $color-primary;
 }
 
 .logout.button {
     background-color: $color-red-neon;
     border-radius: $card-border-radius-2;
+    margin-left: 1rem;
 }
