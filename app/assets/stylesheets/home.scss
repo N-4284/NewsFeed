@@ -23,7 +23,7 @@
     margin: 0.5rem;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: flex-start;
 }
 
@@ -34,27 +34,20 @@
 }
 
 .article_image {
-    height: 70%;
-    width: 100%;
+    height: 200px;
+    width: 320px;
     border: 0.4rem solid $color-blk-dark-light;
     border-radius: $card-border-radius-2;
-    margin: 1rem 1.5rem;
+    margin: 0.5rem;
+    overflow: hidden;
+    object-fit: cover;
 }
 
-.article_image img {
-   height: 100%;
-   width: 100%;
-   object-fit: cover;    
-}
-
-
-.articles-small {
-    
+.articles-small { 
     grid-column: span 4;    
 }
 
 .articles-small .article_image {
-    height: 100%;
-    width: 100%;
-    
+    height: 80px;
+    width: 85px;  
 }
