@@ -33,6 +33,7 @@ body {
     width: $container-width-md;
     max-width: 1800px;
     margin-inline: auto;
+    height: max-content;
 
 }
 
@@ -78,4 +79,10 @@ img {
     display: block;
     width: 100%;
     object-fit: cover;
+}
+
+.button {
+    border-radius: $card-border-radius-2;
+    background-color: $color-blue-neon;
+    padding: 0.3rem;
 }

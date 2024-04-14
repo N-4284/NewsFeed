@@ -22,22 +22,17 @@
                     <li><%= link_to 'Contact', pages_contact_path %></li>
                     <li><%= link_to 'About', pages_about_path %></li>
 
-                    <li class ="nav_items"> 
-                        
-                        
-                        
-                        <div class ="avatar">
-                            <img src="" alt="no src">
-                        </div>
+                    <li class ="nav_items">                       
+                                                
                         <% if user_signed_in? %>
-                            <ul>
-                                <li><%= link_to 'Dashboard', root_path %></li>
-                                <li><%= link_to 'Edit Acc', edit_user_registration_path %></li>
-                                <li><%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></li>
-                            </ul>
+                          
+                                <button id="toggleOpenButton" class ="avatar">
+                                    <%=image_tag("close.png",  id: 'avatar',alt: "no src" )%>
+                                </button>
+    
                         <%else%>
-                            <%= link_to 'Sign Up', new_user_registration_path %>
-                            <%= link_to 'Sign In', user_session_path %>
+                            <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
+                            <%= link_to 'Sign In', user_session_path, class: 'button' %>
                         <% end %>
 
                     </li>
@@ -65,5 +60,12 @@
         </div>
 
 </nav>
+
+<div id="iframeContainer" style="display: none;">
+    <button id="toggleCloseButton">
+        <%=image_tag("close.png", alt: "close" , class: 'close-button')%>
+    </button>
+    <iframe src="<%= dashboard_dashboard_path %>" frameborder="0"></iframe>
+</div>
 
 <div class='section_extra-margin'></div>
