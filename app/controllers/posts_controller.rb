@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     #byebug
     @categories = Category.all.pluck(:title, :id) # Fetch categories from the database
     @locations = Location.all.pluck(:title, :id)
+    render layout: "action"
   end
 
   # GET /posts/1/edit
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @categories = Category.all.map { |category| [category.title, category.id] }
     @locations = Location.all.map {|location| [location.title, location.id] }
+    render layout: "action"
   end
 
   # POST /posts or /posts.json
