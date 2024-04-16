@@ -83,13 +83,17 @@ img {
 
 .button {
     border-radius: $card-border-radius-2;
-    background-color: $color-primary-variant;
+    background-color: $color-primary;
     padding: 0.3rem;
 }
 
 .button.danger {
     background-color: $color-red-neon;
 
+}
+
+.button.alt {
+    background-color: $color-primary-variant;
 }
 
 table {

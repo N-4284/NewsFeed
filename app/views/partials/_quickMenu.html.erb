@@ -11,10 +11,15 @@
                 <%= link_to 'Dashboard', dashboard_path,class: "button" %>
         </div>
         
-        <div>
-                <%= link_to 'not imple', dashboard_dashboard_path,class: "button" %>
-                <%= link_to 'nnot imple', dashboard_dashboard_path,class: "button"%>
-        </div>
+        <% if current_user&.has_role?(:admin) || current_user&.has_role?(:moderator) %>
+                <div>
+                        <% if current_user&.has_role?(:admin)%>
+                                <%= link_to 'Manage Accounts', admin_path,class: "button" %>
+                        <%end%>
+                        <%= link_to 'Manage Posts', dashboard_dashboard_path,class: "button"%>
+                </div>
+        <% end %>
+        
         <div class='logout_pos'>
             <%= link_to 'Logout', destroy_user_session_path,class: "button danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>     
         </div>       

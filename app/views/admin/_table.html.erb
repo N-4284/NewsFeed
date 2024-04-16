@@ -1,0 +1,48 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Privilage</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      
+      <tr>
+        <td><h3><%= "#{user.username}"%></h3><div><%= "#{user.firstname} #{user.lastname}" %></div></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.has_role?(:admin) %>
+            Admin
+            <div>
+              <%= link_to 'Demote', demote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button' %>
+            </div>
+          <% elsif user.has_role?(:moderator) %>
+            Moderator
+            <div>
+              <%= link_to 'Promote', promote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button alt' %>
+              <%= link_to 'Demote', demote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button' %>
+            </div>
+          <% elsif user.has_role?(:writer) %>
+            Writer
+            <div>
+              <%= link_to 'Promote', promote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button alt' %>
+              <%= link_to 'Demote', demote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button' %>
+            </div>  
+          <% elsif user.has_role?(:viewer) %>
+            Viewer
+            <div>
+              <%= link_to 'Promote', promote_admin_path(user), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'button alt' %>
+            </div>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Delete', destroy_user_admin_path(user),  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button danger' %>
+        </td>
+      </tr>
+      
+    <% end %>  
+  </tbody>
+</table>

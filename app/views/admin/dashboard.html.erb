@@ -1,0 +1,33 @@
+<%=render "navBar"%>      
+
+<p style="color: green"><%= notice %></p>
+
+
+<section class="dashboard">
+  <div class="container dashboard_container">
+
+      <aside>
+        <ul>
+            <li>
+                <%= link_to admin_path, class: 'active' do %>  
+                  <h5>Manage Users</h5>
+                <%end%>
+            </li>
+            <li>
+                <%= link_to edit_user_registration_path do %>  
+                <h5>Moderation</h5>
+                <%end%>
+            </li>
+        </ul>
+      </aside>  
+
+      <main id="post">
+      
+        <h1>Users</h1>
+        
+        <%= render "table"%>
+
+      </main> 
+
+  </div>
+</section>
