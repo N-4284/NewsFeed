@@ -3,7 +3,7 @@
        
         <li>
                 <button id="toggleOpenButton" class ="profile_avatar", onclick= "window.parent.location.href = '<%=edit_user_registration_path%>'">
-                        <%=image_tag("close.png",alt: "no src" )%>
+                        <%= image_tag(rails_blob_path(current_user.profile_picture), alt: "profile")%>
                 </button>
         </li>
         

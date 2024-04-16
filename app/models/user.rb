@@ -10,6 +10,32 @@ class User < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true
 
-  has_many :posts, foreign_key: :author_id, dependent: :nullify  
+  has_one_attached :profile_picture
+  validate :correct_image_type
+  validate :image_size
+
+  has_many :posts, foreign_key: :author_id, dependent: :nullify
+  
+  
+  private  
+    
+    def correct_image_type
+        unless profile_picture.attached?
+            errors.add(:profile_picture, 'must be present')
+        end
+        if profile_picture.attached? && !profile_picture.content_type.in?(%w(image/png image/jpeg))
+          errors.add(:profile_picture, 'must be a PNG, JPG or JPEG file')
+          profile_picture.purge # Delete the attached file
+        end
+    end
+
+    def image_size
+        if profile_picture.attached?
+          if profile_picture.blob.byte_size > 2.megabytes
+            errors.add(:profile_picture, 'must be less than 5MB')
+            profile_picture.purge  # Remove the attachment
+          end        
+        end
+    end
 
 end

@@ -26,14 +26,14 @@
                                                 
                         <% if user_signed_in? %>
                           
-                                <button id="toggleOpenButton" class ="avatar">
-                                    <%=image_tag("close.png",  id: 'avatar',alt: "no src" )%>
+                                <button id="toggleOpenButton" class="avatar">
+                                    <%= image_tag(rails_blob_path(current_user.profile_picture), alt: "profile", id: 'avatar')%>
                                 </button>
     
                         <%else%>
                             <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
                             <%= link_to 'Sign In', user_session_path, class: 'button' %>
-                        <% end %>
+                        <%end%>
 
                     </li>
 
@@ -61,14 +61,18 @@
 
 </nav>
 
-<div id="iframeContainer" style="display: none;">
+<% if user_signed_in? %>
     
-    <button id="toggleCloseButton">
-        <%=image_tag("close.png", alt: "close" , class: 'close-button')%>
-    </button>
-    
-    <%= render "partials/quickMenu"%>
+    <div id="iframeContainer" style="display: none;">
 
-</div>
+        <button id="toggleCloseButton">
+            <%=image_tag("close.png", alt: "close" , class: 'close-button')%>
+        </button>
+
+        <%= render "partials/quickMenu"%>
+
+    </div>
+    
+<%end%>
 
 <div class='section_extra-margin'></div>
