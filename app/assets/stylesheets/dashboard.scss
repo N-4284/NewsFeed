@@ -1,0 +1,53 @@
+@import 'variables';
+
+
+.dashboard {
+    margin-top: 6rem;
+}
+.sidebar_toggle {
+    display: none;
+}
+
+.dashboard_container {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: $color-primary-light;
+    padding: 2rem;
+    margin-bottom: 5rem;
+}
+
+.dashboard aside a {
+    background-color: $color-primary-variant;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+    border-radius: $card-border-radius-2 ;
+}
+
+.dashboard aside ul li:not(:last-child) a {
+    border-bottom: 1px solid $color-gray-900;
+}
+
+.dashboard aside a:hover {
+    background: $color-blue-neon;
+}
+
+.dashboard aside a.active {
+    background: $color-primary-light;
+}
+
+
+.dashboard main {
+    margin-left: 1.5rem;
+}
+
+.dashboard main h2 {
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}
+
+
+
+

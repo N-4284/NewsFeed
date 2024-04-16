@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   def show
   end
 
+  def dashboard
+    @posts = current_user.posts 
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
@@ -67,7 +71,7 @@ class PostsController < ApplicationController
     @post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to dashboard_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end

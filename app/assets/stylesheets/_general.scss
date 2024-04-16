@@ -86,3 +86,37 @@ img {
     background-color: $color-primary-variant;
     padding: 0.3rem;
 }
+
+.button.danger {
+    background-color: $color-red-neon;
+
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+table th {
+    background:$color-gray-700;
+    padding: 0.8rem;
+    color: $color-white;
+}
+
+table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid $color-gray-200;
+}
+
+table tr:hover td {
+    background-color: $color-primary-light;
+    color: $color-white;
+    cursor: default;
+    transition: $transition;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+}

@@ -1,8 +1,15 @@
 class DashboardController < ApplicationController
-    layout 'action'
-    
-    def dashboard
+  before_action :authenticate_user!, only: [:index, :dashboard]
 
-    end
+  layout 'action'
+
+  def index
+    @posts = current_user.posts 
+    
+  end
+  
+  def dashboard
 
   end
+
+end

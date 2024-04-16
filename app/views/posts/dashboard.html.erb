@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+
+<section class="dashboard">
+
+  <div class="container dashboard_container">
+
+      <aside>
+        <ul>
+            <li>
+                <%= link_to dashboard_path, class: 'active' do %>  
+                  <h5>Dashboard</h5>
+                <%end%>
+            </li>
+            <li>
+                <%= link_to edit_user_registration_path do %>  
+                <h5>Profile</h5>
+                <%end%>
+            </li>
+        </ul>
+      </aside>  
+
+      <main id="post">
+      
+        <h1>Your Posts</h1>
+        <%= render "table"%>
+
+      </main> 
+
+  </div>
+</section>
