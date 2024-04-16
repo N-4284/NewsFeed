@@ -15,7 +15,8 @@ class User < ApplicationRecord
   validate :image_size
 
   has_many :posts, foreign_key: :author_id, dependent: :nullify
-  
+
+  after_create :assign_default_role
   
   private  
     
@@ -36,6 +37,10 @@ class User < ApplicationRecord
             profile_picture.purge  # Remove the attachment
           end        
         end
+    end
+
+    def assign_default_role
+      self.add_role(:viewer) # Assign 'user' role to new users
     end
 
 end

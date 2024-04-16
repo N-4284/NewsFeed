@@ -13,8 +13,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    authorize! :create, @post
     @post = Post.new
+    authorize! :create, @post
     #byebug
     @categories = Category.all.pluck(:title, :id) # Fetch categories from the database
     @locations = Location.all.pluck(:title, :id)
