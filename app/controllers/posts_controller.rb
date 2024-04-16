@@ -4,7 +4,15 @@ class PostsController < ApplicationController
   before_action :authorize_user!, only: [:edit, :destroy]
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = if params[:search].present?
+            Post.where("title LIKE ?", "%#{params[:search]}%")
+    elsif params[:category].present?
+      Post.by_category_name(params[:category])
+    elsif params[:loc].present?
+      Post.by_location(params[:loc])
+    else
+      Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json

@@ -9,7 +9,10 @@ class Post < ApplicationRecord
     validate :correct_thumbnail_type
     validate :thumbnail_size
 
+    scope :by_category_name, ->(title) { joins(:category).where(categories: { title: title }) }
+    scope :by_location, ->(title) { joins(:category).where(locations: { title: title }) }
 
+    
     private  
     
     def correct_thumbnail_type
