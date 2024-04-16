@@ -23,11 +23,11 @@
         <section class='articles container'>
             
             <% @secondary_posts.includes(:author, :category, :location).each do |post| %>
-                <div class="article_body" id="posts">
-                    <%= link_to  post, class: 'braf' do %>
-                    <%= render partial: 'previewMain', locals: { post: post } %>                 
-                    <%end%>
-                </div>     
+                <%= link_to  post do %>
+                    <div class="article_body" id="posts">
+                        <%= render partial: 'previewMain', locals: { post: post } %>    
+                    </div>             
+                <%end%>     
             <% end %>
                
         </section>
