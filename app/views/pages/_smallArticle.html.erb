@@ -1,0 +1,19 @@
+<div class='articles-small'>
+    <section class='articles container'>
+        
+        <h2><%= section_title %></h2>
+        
+        <% articles.each do |post| %>
+            
+            <%= link_to post do %>
+            
+                <div class="article_body" id="posts">
+                    <%= render partial: 'previewMain', locals: { post: post } %>    
+                </div>             
+            
+            <% end %>
+        
+        <% end %>
+    
+    </section>
+</div>

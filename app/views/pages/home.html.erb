@@ -1,38 +1,20 @@
 
-<h1 class='container'>Pages#Home</h1>
 
 <main class="container topics">
 
-    <section class='articles container'>
-        <h2>Topics</h2> 
-            
-        <% @main_posts.includes(:author, :category, :location).each do |post| %>
-            
-            <%= link_to  post do %>
-                <div class="article_body" id="posts">
-                    <%= render partial: 'previewMain', locals: { post: post } %>    
-                </div>             
-            <%end%>
-                 
-        <% end %>
-        
-    </section>
-
-    <div class='articles-small'>
-        
-        <section class='articles container'>
-            
-            <% @secondary_posts.includes(:author, :category, :location).each do |post| %>
-                <%= link_to  post do %>
-                    <div class="article_body" id="posts">
-                        <%= render partial: 'previewMain', locals: { post: post } %>    
-                    </div>             
-                <%end%>     
-            <% end %>
-               
-        </section>
-        
-    </div> 
     
+    <% if @recent_posts.present? %>
+        <%= render partial: 'largeArticle', locals: { articles: @recent_posts, section_title: 'Recent News' } %>
+        <%= render partial: 'smallArticle', locals: { articles: @secondary_posts, section_title: 'Other News' } %>        
+    <%end%>
+
+    <% @categories_with_posts.each do |category| %>
+        <%= render partial: 'smallArticle', locals: { articles: category.post.limit(2), section_title: category.title } %>
+    <% end %> 
+
+    <% @locations_with_posts.each do |location| %>
+        <%= render partial: 'smallArticle', locals: { articles: location.post.limit(2), section_title: location.title } %>
+    <% end %>             
+       
     
 </main>    
