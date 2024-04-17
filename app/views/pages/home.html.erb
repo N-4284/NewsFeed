@@ -9,6 +9,10 @@
         <% if @secondary_posts.present? %>
             <%= render partial: 'smallArticle', locals: { articles: @secondary_posts, section_title: 'Other News' } %>        
         <%end%>
+    <%else%>
+        <% if @secondary_posts.present? %>
+            <%= render partial: 'largeArticle', locals: { articles: @secondary_posts, section_title: 'Other News' } %>        
+        <%end%>
     <%end%>
 
     <% @categories_with_posts.each do |category| %>
