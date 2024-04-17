@@ -16,11 +16,11 @@
     <%end%>
 
     <% @categories_with_posts.each do |category| %>
-        <%= render partial: 'smallArticle', locals: { articles: category.post.limit(2), section_title: category.title } %>
+        <%= render partial: 'smallArticle', locals: { articles: category.post.order(created_at: :desc).limit(2), section_title: category.title } %>
     <% end %> 
 
     <% @locations_with_posts.each do |location| %>
-        <%= render partial: 'smallArticle', locals: { articles: location.post.limit(2), section_title: location.title } %>
+        <%= render partial: 'smallArticle', locals: { articles: location.post.order(created_at: :desc).limit(2), section_title: location.title } %>
     <% end %>             
        
     

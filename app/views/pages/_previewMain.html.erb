@@ -1,7 +1,7 @@
 <div class='article_body' id="<%= dom_id post %>">
    
 
- <%= image_tag rails_blob_path(post.thumbnail), class: "article_image" %>
+ <%= image_tag rails_blob_path(post.thumbnail), class: "article_image", width: "320px", height: "200px" %>
 
     <div class='article_body-info'>
           <h3><%= post.title %></h3>

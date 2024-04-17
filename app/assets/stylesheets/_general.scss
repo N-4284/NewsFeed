@@ -89,6 +89,7 @@ img {
 
 .button:hover {
     background-color: $color-white;
+    color: black;
     transition: $transition;
 }
 
@@ -98,6 +99,7 @@ img {
 
 .button.danger:hover {
     background-color: $color-white;
+    color: black;
     transition: $transition;
 }
 
