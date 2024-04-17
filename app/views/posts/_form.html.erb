@@ -1,3 +1,6 @@
+<div class='container form-holder '>  
+<div class="form-container">
+
 <%= form_with(model: post, html: { multipart: true }) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
@@ -23,7 +26,7 @@
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, row: "20" %>
   </div>
 
   <div>
@@ -42,6 +45,9 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Post", class: "button" %>
   </div>
 <% end %>
+
+</div>
+</div>

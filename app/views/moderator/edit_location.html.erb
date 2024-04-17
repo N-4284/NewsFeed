@@ -1,11 +1,15 @@
 <!-- app/views/moderator/edit_location.html.erb -->
-
+<div class='container form-holder '>  
+<div class="form-container">
 <h1>Edit location</h1>
 
 <%= form_with(model: @location, url: moderator_update_location_path(@location), local: true, method: :patch) do |form| %>
     
     <%= render 'locationForm', form: form%>
     <div>
-        <%= form.submit 'Update Location' %>
+        <%= form.submit 'Update Location', class: "button" %>
     </div>
 <% end %>
+
+</div>
+</div>

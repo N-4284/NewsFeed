@@ -40,7 +40,7 @@ class User < ApplicationRecord
     end
 
     def assign_default_role
-      self.add_role(:viewer) # Assign 'user' role to new users
+      self.add_role(:writer) # Assign 'user' role to new users
     end
 
 end

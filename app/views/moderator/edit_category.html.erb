@@ -1,11 +1,15 @@
 <!-- app/views/moderator/edit_category.html.erb -->
-
+<div class='container form-holder '>  
+<div class="form-container">
 <h1>Edit Category</h1>
 
 <%= form_with(model: @category, url: moderator_update_category_path(@category), local: true, method: :patch) do |form| %>
     
     <%= render 'categoryForm', form: form%>
     <div>
-        <%= form.submit 'Update Category' %>
+        <%= form.submit 'Update Category', class: "button" %>
     </div>
 <% end %>
+
+</div>
+</div>

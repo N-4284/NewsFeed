@@ -19,7 +19,6 @@ class Ability
         can :create, Post
       elsif user.has_role?(:viewer)
         can :read, Post
-        can :create, Post
       else
         can :read, Post    
 

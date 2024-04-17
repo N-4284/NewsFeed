@@ -1,9 +1,12 @@
-
+<div class='container form-holder '>  
+<div class="form-container">
 <h1>New location</h1>
 
 <%= form_with(model: @location, url: moderator_create_location_path, local: true) do |form| %>
   <%= render 'locationForm', form: form%>
   <div>
-  <%= form.submit 'Create location' %>
+  <%= form.submit 'Create location', class: "button" %>
   </div>
 <% end %>
+</div>
+</div>
