@@ -1,12 +1,10 @@
+<div class="container">
+
 <p style="color: green"><%= notice %></p>
 
-<%= link_to "Back to posts", posts_path %>
+<%= link_to "Back to posts", posts_path, class: "button" %>
 
 <%= render @post %>
 
-<% if current_user == @post.author %>
-  <div>
-    <%= link_to "Edit this post", edit_post_path(@post) %> |
-    <%= button_to "Destroy this post", @post, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-  </div>
-<%end%>
+
+</div>

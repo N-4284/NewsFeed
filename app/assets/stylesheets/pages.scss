@@ -1,2 +1,26 @@
+@import 'variables';
+
+.post {
+    background-color: $color-blk-dark; /* Set dark background color */
+    padding: 1rem; /* Add padding */
+    margin-bottom: 1rem; /* Add margin between posts */
+    border-radius: $card-border-radius-2; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    font-size: 20px;
+  }
+
+.post img {
+  border: 2px solid $color-gray-700; /* Add border with gray color */
+  border-radius: $card-border-radius-2; /* Add border radius */
+  max-width: 800px; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure image is treated as a block element */
+  margin: 0 auto; 
+}
+
+.post-content {
+    max-width: 100%; /* Ensure text doesn't exceed the container width */
+  }
+
 
 
