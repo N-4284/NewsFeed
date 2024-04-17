@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td><%= category.description %></td>
+        <td class="action">
+          <%= link_to 'Edit', moderator_edit_category_url(category), class: 'button' %>  
+          <%= link_to 'Delete', destroy_category_moderator_path(category), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button danger' %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="4">
+        <%= link_to "New Category", moderator_new_category_path, class: 'button' %>
+      </td>
+    </tr>
+  </tbody>
+</table>

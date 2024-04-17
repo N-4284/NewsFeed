@@ -1,0 +1,9 @@
+
+<h1>New Category</h1>
+
+<%= form_with(model: @category, url: moderator_create_category_path, local: true) do |form| %>
+  <%= render 'categoryForm', form: form%>
+  <div>
+  <%= form.submit 'Create Category' %>
+  </div>
+<% end %>

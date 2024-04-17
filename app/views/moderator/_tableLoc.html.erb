@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.title %></td>
+        <td class="action">
+          <%= link_to 'Edit', moderator_edit_location_url(location), class: 'button' %>  
+          <%= link_to 'Delete', destroy_location_moderator_path(location), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button danger' %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="4">
+        <%= link_to "New location", moderator_new_location_path, class: 'button' %>
+      </td>
+    </tr>
+  </tbody>
+</table>

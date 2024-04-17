@@ -1,0 +1,42 @@
+<%=render "navBar"%>      
+
+
+<section class="dashboard">
+  <div class="container dashboard_container">
+
+      <aside>
+        <ul>
+            <li>
+                <%= link_to moderator_path,  class: 'active' do %>  
+                <h5>Manage Posts</h5>
+                <%end%>
+            </li>
+            
+            <li>
+                <%= link_to moderator_categories_path do %>  
+                  <h5>Manage Categories</h5>
+                <%end%>
+            </li>
+
+            <li>
+                <%= link_to moderator_locations_path do %>  
+                  <h5>Manage Locations</h5>
+                <%end%>
+            </li>
+
+        </ul>
+      </aside>  
+
+      <main id="post">
+      
+         <div>
+          <h1>All Posts</h1>
+          <p style="color: green"><%= notice %></p>
+        </div>
+        
+        <%= render "table"%>
+
+      </main> 
+
+  </div>
+</section>

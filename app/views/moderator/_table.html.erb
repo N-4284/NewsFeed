@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Username</th>
+      <th>Category</th>
+      <th>Location</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to post_path(post), class: 'click' do %>  
+            <%= post.title %>
+          <% end %>
+        </td>
+        <td><%= post.author.username %></td>
+        <td><%= post.category.title %></td>
+        <td><%= post.location.title %></td>
+        <td class="action">
+          <%= link_to 'View', post_path(post), class: 'button' %>  
+          <%= link_to 'Delete', destroy_post_moderator_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

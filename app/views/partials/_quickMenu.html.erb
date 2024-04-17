@@ -16,7 +16,7 @@
                         <% if current_user&.has_role?(:admin)%>
                                 <%= link_to 'Manage Accounts', admin_path,class: "button" %>
                         <%end%>
-                        <%= link_to 'Manage Posts', dashboard_dashboard_path,class: "button"%>
+                        <%= link_to 'Manage Posts', moderator_path,class: "button"%>
                 </div>
         <% end %>
         

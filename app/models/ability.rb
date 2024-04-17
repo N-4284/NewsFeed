@@ -11,6 +11,8 @@ class Ability
         can :read, Post
         can :create, Post
         can :update, Post, user_id: user.id
+        can :manage, Category
+        can :manage, Location
         can :destroy, Post
       elsif user.has_role?(:writer)
         can :read, Post
