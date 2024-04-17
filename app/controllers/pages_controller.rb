@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @recent_posts = Post.limit(4).where("created_at >= ?", 1.hours.ago)
-    @secondary_posts = @recent_posts.present? ? Post.where.not(id: @recent_posts.pluck(:id)).limit(@recent_posts.count * 2) : Post.limit(4)
+    @recent_posts = Post.order(created_at: :desc).limit(4).where("created_at >= ?", 1.hours.ago)
+    @secondary_posts = @recent_posts.present? ? Post.where.not(id: @recent_posts.pluck(:id)).limit(@recent_posts.count) : Post.limit(4)
     @tech = Post.joins(:category).where(categories: { title: 'technology' })
     
     @categories_with_posts = Category.joins(:post)
