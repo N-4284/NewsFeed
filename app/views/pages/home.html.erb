@@ -5,7 +5,9 @@
     
     <% if @recent_posts.present? %>
         <%= render partial: 'largeArticle', locals: { articles: @recent_posts, section_title: 'Recent News' } %>
-        <%= render partial: 'smallArticle', locals: { articles: @secondary_posts, section_title: 'Other News' } %>        
+        <% if @secondary_posts.present? %>
+            <%= render partial: 'smallArticle', locals: { articles: @secondary_posts, section_title: 'Other News' } %>        
+        <%end%>
     <%end%>
 
     <% @categories_with_posts.each do |category| %>
