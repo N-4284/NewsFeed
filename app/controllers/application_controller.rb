@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :load_categories
     protect_from_forgery with: :exception
 
     before_action :configure_permitted_parameters, if: :devise_controller?
@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
             #devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me)}
 
          end
+         
+         def load_categories
+          @categories = Category.all
+        end
 end

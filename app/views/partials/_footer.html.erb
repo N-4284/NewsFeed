@@ -1,9 +1,18 @@
 <div class='section_extra-margin'></div>
 <footer>
     <div class="footer_socials">
-        
-        <a href="https://www.youtube.com/" target="_blank"><i class="">social bubble</i></a>
-        
+                
+        <%= link_to "https://www.youtube.com/",target: '_blank' do %>
+          <%= image_tag "youtube.png", alt: "uTube" %>
+        <% end %>
+
+        <%= link_to "https://www.reddit.com/",target: '_blank' do %>
+          <%= image_tag "reddit.svg", alt: "uTube" %>
+        <% end %>
+        <%= link_to "https://www.x.com/",target: '_blank' do %>
+          <%= image_tag "x.svg", alt: "uTube" %>
+        <% end %>
+                
     </div>
     
     <div class="container footer_container">
@@ -11,21 +20,21 @@
         <article>
             <h4> Categories</h4>
             <ul>
-                <% 5.times do |i|%>
-                    <li><%= link_to i , root_path %></li>
-                <%end%>
+                <% @categories.each do |category| %>
+                    <li><%= link_to category.title , posts_path(category: category.title) %></li>
+                <% end %>
             </ul>
         </article>
 
         <article>
             <h4> Support</h4>
             <ul>
-                <li><a href="">Social Support</a></li>
-                <li><a href="">Email</a></li>
-                <li><a href="">Local Numbers</a></li>
-                <li><a href="">Online Complaints </a></li>
-                <li><a href="">Queries</a></li>
-                <li><a href="">Location</a></li>
+                <li><%= link_to "Social Support", pages_contact_path %></li>
+                <li><%= link_to "Email", pages_contact_path %></li>
+                <li><%= link_to "Local Numbers", pages_contact_path %></li>
+                <li><%= link_to "Online Complaints", pages_contact_path %></li>
+                <li><%= link_to "Queries", pages_contact_path %></li>
+                <li><%= link_to "Location", pages_contact_path %></li>
             </ul>
         </article>
 

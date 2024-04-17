@@ -20,8 +20,8 @@ footer
 
 .footer_socials a
 {
-    background: $color-bg;
-    border-radius: 50%;
+    background: transparent;
+    border-radius: 30%;
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
@@ -31,12 +31,6 @@ footer
 
 }
 
-.footer_socials a:hover
-{
-    background-color: $color-white;
-    color: $color-bg;
-    
-}
 
 .footer_container
 {
